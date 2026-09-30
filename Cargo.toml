@@ -2,7 +2,7 @@
 name = "wyrd-greet"
 version = "0.1.0"
 edition = "2021"
-rust-version = "1.85"
+rust-version = "1.90"
 authors = ["xximxxhatedxx <ghostr210305@gmail.com>"]
 license = "MIT OR Apache-2.0"
 description = "Standalone Wayland session locker (ext-session-lock-v1 + PAM) and greetd display manager greeter for the Wyrd ecosystem"
@@ -20,7 +20,7 @@ lock-mode = []
 greet-mode = []
 
 [dependencies]
-wyrd-engine       = { git = "https://github.com/xximxxhatedxx/wyrd-engine", tag = "v0.1.0" }
+wyrd-engine       = { git = "https://github.com/xximxxhatedxx/wyrd-engine", tag = "v0.1.0", default-features = false, features = ["lua"] }
 tiny-skia         = "0.12"
 libc              = "0.2"
 wayland-client    = "0.31"
