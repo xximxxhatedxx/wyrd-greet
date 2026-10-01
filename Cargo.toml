@@ -1,0 +1,43 @@
+[package]
+name = "wyrd-greet"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.90"
+publish = false
+authors = ["xximxxhatedxx <ghostr210305@gmail.com>"]
+license = "MIT OR Apache-2.0"
+description = "Standalone Wayland session locker (ext-session-lock-v1 + PAM) and greetd display manager greeter for the Wyrd ecosystem"
+repository = "https://github.com/xximxxhatedxx/wyrd-greet"
+homepage = "https://github.com/xximxxhatedxx/wyrd-greet"
+readme = "README.md"
+
+[workspace]
+resolver = "2"
+
+[[bin]]
+name = "wyrd-greet"
+path = "src/main.rs"
+
+[features]
+default = ["lock-mode", "greet-mode"]
+lock-mode = []
+greet-mode = []
+
+[dependencies]
+wyrd-engine       = { version = "0.1.0", default-features = false, features = ["config", "lua"] }
+tiny-skia         = "0.12"
+libc              = "0.2"
+wayland-client    = "0.31"
+wayland-protocols = { version = "0.32", features = ["client", "staging"] }
+anyhow            = "1"
+log               = "0.4"
+env_logger        = "0.11"
+toml              = "0.8"
+serde             = { version = "1", features = ["derive"] }
+serde_json        = "1"
+zeroize           = "1.9"
+xkbcommon         = "0.9"
+chrono            = { version = "0.4", features = ["clock"] }
+clap              = { version = "4", features = ["derive"] }
+mlua              = { version = "0.12", features = ["lua54", "vendored", "serialize"] }
+image             = "0.25"
